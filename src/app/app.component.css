@@ -1,0 +1,17 @@
+.is-error{
+    font-size: 0.6rem;
+}
+
+.text-in-grid-tile{
+      width: 64%;
+      margin: 0 auto;
+}
+
+.button-align{
+      width: 82%;
+      margin: 0 auto;
+}
+
+.margin-bottom-20{
+    margin-bottom: 20px;
+}
