@@ -3,6 +3,101 @@
     <mat-toolbar>
       <span class = "fill-space"></span>
       <span>
+      Business Details
+      </span>
+      <span class = "fill-space"></span>
+    </mat-toolbar>
+    <form [formGroup] = "businessDetailsForm">
+      <mat-grid-list cols = "2" rowHeight = "3:1">
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>
+              Organization Name
+            </mat-label>
+            <input matInput type="text" formControlName = "organization_name">
+            <mat-error *ngIf="businessDetailsForm.controls.organization_name.errors && businessDetailsForm.controls.organization_name.touched" class = 'is-error'>
+            </mat-error>  
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>
+              Permit Number
+            </mat-label>
+            <input matInput type="text" formControlName = "permit_number">
+            <mat-error *ngIf="businessDetailsForm.controls.permit_number.errors && businessDetailsForm.controls.permit_number.touched" class = 'is-error'>
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>
+              Nature of Business
+            </mat-label>
+            <select matNativeControl formControlName = "business_nature">
+              <option *ngFor="let item of businessNature;">{{item.name}}</option>
+            </select>  
+              <mat-error *ngIf="businessDetailsForm.controls.business_nature.errors && businessDetailsForm.controls.business_nature.touched" class = 'is-error'>
+              </mat-error>  
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>
+              Business Type
+            </mat-label>
+            <select matNativeControl formControlName = "business_type">
+              <option *ngFor="let item of businessTypes;">{{item.name}}</option>
+            </select>  
+              <mat-error *ngIf="businessDetailsForm.controls.business_type.errors && businessDetailsForm.controls.business_type.touched" class = 'is-error'>
+              </mat-error>  
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>
+              Physical Location
+            </mat-label>
+            <input matInput type="text" formControlName = "physical_location">
+            <mat-error *ngIf="businessDetailsForm.controls.physical_location.errors && businessDetailsForm.controls.physical_location.touched" class = 'is-error'>
+            </mat-error>  
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>
+              Postal Address
+            </mat-label>
+            <input matInput type="text" formControlName = "postal_address">
+            <mat-error *ngIf="businessDetailsForm.controls.postal_address.errors && businessDetailsForm.controls.postal_address.touched" class = 'is-error'>
+            </mat-error>  
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>
+              City/Town
+            </mat-label>
+            <input matInput type="text" formControlName = "city">
+            <mat-error *ngIf="businessDetailsForm.controls.city.errors && businessDetailsForm.controls.city.touched" class = 'is-error'>
+            </mat-error>  
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>
+              KRA PIN
+            </mat-label>
+            <input matInput type="text" formControlName = "kra_pin">
+            <mat-error *ngIf="businessDetailsForm.controls.kra_pin.errors && businessDetailsForm.controls.kra_pin.touched" class = 'is-error'>
+            </mat-error>  
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+    <mat-toolbar>
+      <span class = "fill-space"></span>
+      <span>
       Business Contact Info
       </span>
       <span class = "fill-space"></span>
@@ -85,7 +180,7 @@
       </span>
       <span class = "fill-space"></span>
     </mat-toolbar>
-    <form [formGroup] = "userForm">
+    <form [formGroup] = "shareholdersInfoForm">
       <mat-grid-list cols = "2" rowHeight = "3:1">
         <mat-grid-tile>
           <mat-form-field>
@@ -93,8 +188,8 @@
               First Name
             </mat-label>
             <input matInput type="text" formControlName = "first_name">
-            <mat-error *ngIf="userForm.controls.first_name.errors && userForm.controls.first_name.touched" class = 'is-error'>
-              <mat-error *ngIf="userForm.controls.first_name.errors.pattern">Names can only contain letters</mat-error>
+            <mat-error *ngIf="shareholdersInfoForm.controls.first_name.errors && shareholdersInfoForm.controls.first_name.touched" class = 'is-error'>
+              <mat-error *ngIf="shareholdersInfoForm.controls.first_name.errors.pattern">Names can only contain letters</mat-error>
             </mat-error>  
           </mat-form-field>
         </mat-grid-tile>
@@ -104,8 +199,8 @@
               Second Name
             </mat-label>
             <input matInput type="text" formControlName = "second_name">
-            <mat-error *ngIf="userForm.controls.second_name.errors && userForm.controls.second_name.touched" class = 'is-error'>
-              <mat-error *ngIf="userForm.controls.second_name.errors.pattern">Names can only contain letters</mat-error>
+            <mat-error *ngIf="shareholdersInfoForm.controls.second_name.errors && shareholdersInfoForm.controls.second_name.touched" class = 'is-error'>
+              <mat-error *ngIf="shareholdersInfoForm.controls.second_name.errors.pattern">Names can only contain letters</mat-error>
             </mat-error>
           </mat-form-field>
         </mat-grid-tile>
@@ -115,8 +210,8 @@
               Last Name
             </mat-label>
             <input matInput type="text" formControlName = "last_name">
-            <mat-error *ngIf="userForm.controls.last_name.errors && userForm.controls.last_name.touched" class = 'is-error'>
-              <mat-error *ngIf="userForm.controls.last_name.errors.pattern">Names can only contain letters</mat-error>
+            <mat-error *ngIf="shareholdersInfoForm.controls.last_name.errors && shareholdersInfoForm.controls.last_name.touched" class = 'is-error'>
+              <mat-error *ngIf="shareholdersInfoForm.controls.last_name.errors.pattern">Names can only contain letters</mat-error>
             </mat-error>
           </mat-form-field>
         </mat-grid-tile>
@@ -126,8 +221,8 @@
               Email
             </mat-label>
             <input matInput type="text" formControlName = "email">
-            <mat-error *ngIf="userForm.controls.email.errors && userForm.controls.email.touched" class = 'is-error'>
-              <mat-error *ngIf="userForm.controls.email.errors.email">Incorrect email format</mat-error>
+            <mat-error *ngIf="shareholdersInfoForm.controls.email.errors && shareholdersInfoForm.controls.email.touched" class = 'is-error'>
+              <mat-error *ngIf="shareholdersInfoForm.controls.email.errors.email">Incorrect email format</mat-error>
             </mat-error>  
           </mat-form-field>
         </mat-grid-tile>
@@ -137,7 +232,7 @@
               Full Address
             </mat-label>
             <input matInput type="text" formControlName = "full_address">
-            <mat-error *ngIf="userForm.controls.full_address.errors && userForm.controls.full_address.touched" class = 'is-error'>
+            <mat-error *ngIf="shareholdersInfoForm.controls.full_address.errors && shareholdersInfoForm.controls.full_address.touched" class = 'is-error'>
             </mat-error>  
           </mat-form-field>
         </mat-grid-tile>
@@ -149,36 +244,47 @@
             </label>
           </div>
         </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-form-field>
-            <mat-label>
-              Document Type
-            </mat-label>
-            <select matNativeControl formControlName = "document_type">
-              <option *ngFor="let item of documentTypes;">{{item.name}}</option>
-            </select>  
-              <mat-error *ngIf="userForm.controls.document_type.errors && userForm.controls.document_type.touched" class = 'is-error'>
-              </mat-error>  
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <mat-form-field>
-            <mat-label>
-              Document Number
-            </mat-label>
-            <input matInput type="text" formControlName = "document_number">
-            <mat-error *ngIf="userForm.controls.document_number.errors && userForm.controls.document_number.touched" class = 'is-error'>
-            </mat-error>  
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <div class ="text-in-grid-tile">
-              <label>
-                Document
-              <input type="file" (change)="onFileSelected($event)" >
-              </label>
-            </div>
-        </mat-grid-tile>
+      </mat-grid-list>
+      <mat-grid-list cols="2" rowHeight="3:1">
+        <div formArrayName="documents" *ngFor="let document of documents.controls; let i = index">
+          <div [formGroupName]= "i">
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>
+                  Document Type
+                </mat-label>
+                <select matNativeControl formControlName = "document_type">
+                  <option *ngFor="let item of documentTypes;">{{item.name}}</option>
+                </select>  
+                  <!-- <mat-error *ngIf="shareholdersInfoForm.controls.document_type.errors && shareholdersInfoForm.controls.document_type.touched" class = 'is-error'>
+                  </mat-error>   -->
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>
+                  Document Number
+                </mat-label>
+                <input matInput type="text" formControlName = "document_number">
+                <!-- <mat-error *ngIf="shareholdersInfoForm.controls.documents.document_number.errors && shareholdersInfoForm.controls.documents.document_number.touched" class = 'is-error'>
+                </mat-error>   -->
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class ="text-in-grid-tile">
+                  <label>
+                    Document
+                  <input type="file" (change)="onFileSelected($event)" >
+                  </label>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class ="remove-button-align" *ngIf = "i > 0">
+                <button mat-raised-button color="warn" (click)="removeDocument(i)">Remove</button>
+              </div>
+            </mat-grid-tile>
+          </div>
+        </div>
       </mat-grid-list>
     </form>
     <div class ="button-align margin-bottom-20">
